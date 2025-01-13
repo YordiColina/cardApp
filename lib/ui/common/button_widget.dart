@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 
+import '../screens/form_screen.dart';
+
 class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({super.key});
+  final String title;
+  const ButtonWidget({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromRGBO(158, 123, 187, 1.0)
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const FormScreen()),
+          );
+        },
+        child:  Text(title, style: const TextStyle(
+            color: Colors.white
+        ),));
   }
 }
