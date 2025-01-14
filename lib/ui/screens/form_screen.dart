@@ -36,7 +36,7 @@ class _FormScreenState extends State<FormScreen> {
                  ),
                );
             }, separatorBuilder: (BuildContext context, int index) {
-               return const SizedBox(height: 20); } , itemCount: 5),
+               return const SizedBox(height: 20); } , itemCount: 6),
           ),
          const ButtonWidget(title: "guardar")
         ],

@@ -2,17 +2,12 @@ import 'package:card_app/ui/common/button_widget.dart';
 import 'package:card_app/ui/common/card_widget.dart';
 import 'package:card_app/ui/screens/details_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
-
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(249, 249, 249, 1),
       body: Center(
