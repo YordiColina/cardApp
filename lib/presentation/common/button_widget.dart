@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../screens/form_screen.dart';
-
-class ButtonWidget extends StatelessWidget {
+class ButtonWidget extends ConsumerWidget {
   final String title;
-  const ButtonWidget({super.key, required this.title});
-
+  final VoidCallback onPressed;
+  const ButtonWidget({super.key, required this.title,required this.onPressed});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return  ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: const Color.fromRGBO(158, 123, 187, 1.0)
         ),
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const FormScreen()),
-          );
+        onPressed();
         },
         child:  Text(title, style: const TextStyle(
             color: Colors.white

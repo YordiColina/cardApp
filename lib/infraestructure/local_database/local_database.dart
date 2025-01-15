@@ -32,7 +32,11 @@ class LocalDatabase implements ItemRepository {
             description TEXT,
             price REAL,
             color TEXT,
-            weight REAL
+            weight REAL,
+            detailDescription TEXT,
+            marca TEXT,
+            modelo TEXT,
+            stock INTEGER
           )
         ''');
       },

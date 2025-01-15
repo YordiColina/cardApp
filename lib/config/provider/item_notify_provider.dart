@@ -5,10 +5,10 @@ import '../../domain/models/item_data/item.dart';
 import '../notifier/item_notifier.dart';
 
 final itemNotifierProvider = StateNotifierProvider<ItemNotifier, List<Item>>((ref) {
-  final getItemsUseCase = ref.read(getItemsUseCaseProvider);
-  final addItemUseCase = ref.read(addItemUseCaseProvider);
-  final updateItemUseCase = ref.read(updateItemUseCaseProvider);
-  final deleteItemUseCase = ref.read(deleteItemUseCaseProvider);
+  final getItemsUseCase = ref.watch(getItemsUseCaseProvider);
+  final addItemUseCase = ref.watch(addItemUseCaseProvider);
+  final updateItemUseCase = ref.watch(updateItemUseCaseProvider);
+  final deleteItemUseCase = ref.watch(deleteItemUseCaseProvider);
 
   return ItemNotifier(
     getItemsUseCase,
