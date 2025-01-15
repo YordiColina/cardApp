@@ -35,7 +35,10 @@ class HomeScreen extends ConsumerWidget {
              ),
            ),
             const SizedBox( height: 20,),
-           ButtonWidget(title: "Agregar item", onPressed: () {context.go('/form');},)
+           Padding(
+             padding: const EdgeInsets.only(bottom: 20),
+             child: ButtonWidget(title: "Agregar item", onPressed: () {context.go('/form');},),
+           )
           ],
         ),
       ),

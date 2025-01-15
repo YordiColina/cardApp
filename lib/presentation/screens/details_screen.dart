@@ -17,20 +17,22 @@ class DetailsScreen extends ConsumerWidget {
       backgroundColor: const Color.fromRGBO(249, 249, 249, 1),
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(158, 123, 187, 1.0),),
           onPressed: () {
             context.go('/');
           },
-        ),backgroundColor: const Color.fromRGBO(249, 249, 249, 1),
+        ),
+        backgroundColor: const Color.fromRGBO(249, 249, 249, 1),
       ),
       body: Center(
         child: Column(
           children: [
+            const Align(
+                child: Icon(Icons.find_in_page_outlined, size: 40,
+                    color: Color.fromRGBO(158, 123, 187, 1.0))),
             Padding(
               padding: const EdgeInsets.only(top: 20,left: 20,right: 20),
               child: Container(
-                width: 380,
-                height: 420,
                 decoration: BoxDecoration(
                   color: const Color.fromRGBO(240, 240, 240, 1),
                   borderRadius: BorderRadius.circular(20),
@@ -129,7 +131,7 @@ class DetailsScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 30),
                         Padding(
-                          padding: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Text(
                             "Detail descriptión: ${item.detailDescription}",
                             maxLines: 10,
@@ -148,11 +150,11 @@ class DetailsScreen extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 50,),
-            ButtonWidget(title: 'Editar item', onPressed: () {context.go('/form', extra: item);},),
+            ButtonWidget(title: 'Editar item', onPressed: () {context.go('/form', extra: item);}),
             const SizedBox(height: 20,),
             ButtonWidget(title: "Eliminar item",onPressed: () {
               final notifier = ref.read(itemNotifierProvider.notifier);
-            notifier.deleteItem(item.id ?? "");
+            notifier.deleteItem(item.id);
             context.go('/');
             }
               ,)

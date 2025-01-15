@@ -15,13 +15,9 @@ class _CardWidgetState extends State<CardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-
             context.go('/detail', extra: widget.item);
-
       },
       child: Container(
-        width: 300,
-        height: 200,
         decoration: BoxDecoration(
           color: const Color.fromRGBO(240, 240, 240, 1),
           borderRadius: BorderRadius.circular(20),
@@ -86,7 +82,7 @@ class _CardWidgetState extends State<CardWidget> {
                 alignment: Alignment.bottomCenter,
                 child: Text(
                   widget.item.description,
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontSize: 16,
