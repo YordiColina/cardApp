@@ -21,14 +21,10 @@ class ItemNotifier extends StateNotifier<List<Item>> {
     _initializeItems();
   }
 
-  // Inicializar los datos
   Future<void> _initializeItems() async {
-    // Obtener ítems de la base de datos
     final items = await getItemsUseCase.execute();
-
     if (items.isEmpty) {
       final uuid = Uuid();
-      // Si está vacía, agregar datos de ejemplo
       await addItemUseCase.execute(Item(
         id: uuid.v4(),
         name: 'Balón de fútbol',
@@ -60,27 +56,23 @@ class ItemNotifier extends StateNotifier<List<Item>> {
         stock: 50
       ));
 
-      // Actualizar el estado con los ítems iniciales
+
       state = await getItemsUseCase.execute();
     } else {
-      // Si ya hay datos, simplemente los cargamos
       state = items;
     }
   }
 
-  // Método para agregar un ítem
   Future<void> addItem(Item item) async {
     await addItemUseCase.execute(item);
     state = await getItemsUseCase.execute();
   }
 
-  // Método para actualizar un ítem
   Future<void> updateItem(Item item) async {
     await updateItemUseCase.execute(item);
     state = await getItemsUseCase.execute();
   }
 
-  // Método para eliminar un ítem
   Future<void> deleteItem(String id) async {
     await deleteItemUseCase.execute(id);
     state = await getItemsUseCase.execute();
